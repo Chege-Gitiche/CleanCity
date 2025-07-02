@@ -35,7 +35,11 @@
 - Jira for task tracking and bug logging  
 - Daily short check-ins for coordination through Whatsapp and calls
 
+# Photos Takes 
 
+![Jira_management_tool](images/jira.png)
+![Github_collaboration](images/collaboration.png)
+---
 **Prepared by:**  
 Chege Gitiche, Nnamdi Samuel, Kopo Johannes Malgas  
 **Date:** July 2, 2025
