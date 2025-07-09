@@ -67,6 +67,58 @@ This report highlights major security vulnerabilities and functional bugs discov
 - **Location:** `validatePickupForm()`
 
 ---
+### 9. Invalid Email Format Accepted
+**Summary:**  
+Website accepts invalid email format: `user@com`
+
+**Description:**  
+During registration testing, the system incorrectly accepts the email `user@com`, which lacks a valid domain suffix (e.g., `.com`, `.org`). This bypasses standard email validation rules.
+
+**Environment:**  
+- **Browser:**  Microsoft Edge 
+
+**Severity:** Minor  
+**Priority:** Medium  
+
+**Steps to Reproduce:**
+1. Go to the registration page  
+2. Enter name and password fields with valid values  
+3. Enter email as `user@com`  
+4. Submit the form  
+
+**Expected vs Actual:**
+- **Expected:** The system should display an error like “Invalid email format” and prevent submission.  
+- **Actual:** The system accepts the email and proceeds with registration.
+
+**Attachments:**
+![Alt text describing the image](bug_images/email.png)
+
+### 10. Weak Password Policy Enforced
+**Summary:**  
+Password policy too weak — accepts passwords with only 3 characters and no complexity requirements
+
+**Description:**  
+The system allows users to register with passwords as short as 3 characters and doesn't enforce complexity rules (no numbers, symbols, or uppercase letters required). This is a major security risk and encourages poor password practices.
+
+**Environment:**  
+- **Browser:** Microsoft Edge  
+
+**Severity:** Major  
+**Priority:** High  
+
+**Steps to Reproduce:**
+1. Navigate to the registration page  
+2. Enter a valid name and email  
+3. Enter password as `abc` or `123`  
+4. Confirm password  
+5. Submit the form  
+
+**Expected vs Actual:**
+- **Expected:** Password should be rejected if it’s too short or lacks required complexity.  
+- **Actual:** Passwords like `abc` or `123` are accepted.
+
+**Attachments:**
+![Alt text describing the image](bug_images/password.png)
 
 ## ✅ Confirmed Fixes by Jest Tests
 - XSS input is sanitized
